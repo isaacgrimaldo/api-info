@@ -18,4 +18,9 @@ Se servirán información de los post :
 - Nombre de la marca: string
 - Id del anuncio:string
 - img : string
-- Slogan: string    
+- Slogan: string
+
+
+## Documentación 
+La documentación de las rutas del proyecto se estará publicando aquí:  
+ ### [PostMan](https://documenter.getpostman.com/view/13985176/UyrDCvKM)
