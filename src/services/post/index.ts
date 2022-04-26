@@ -2,15 +2,21 @@ import { Request, Response } from 'express';
 import { createPosts } from './helpers/createPosts';
 import { Post } from './interfaces';
 
-/**
- *  this Class will be responsible for checking the routes 
- * 	 - getPost() = create posts list and return it 
- */
 
+/**
+ *  class focused in the controls of the posts routes
+ */
 class PostsServices {
 
-
-	public getPosts (req:Request ,  res:Response){
+    
+	/**
+	 * GET method responsible to get information from the request and create the 
+	 * posts list with that data
+	 * @param _ express request 
+	 * @param res express response
+	 * @returns Summary object with {Post}
+	 */
+	public getPosts ( _:Request ,  res:Response){
 		const sizes = 10;
 		
 		try {
@@ -29,6 +35,7 @@ class PostsServices {
 			});
 		}
 	}
+
 }
 
 

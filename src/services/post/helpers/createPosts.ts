@@ -1,8 +1,13 @@
 import { Post } from '../interfaces';
+import { generatorNumber } from './generateNums';
 import getNamePage from './getPages';
 
 
-// will be response to create a posts list  and return it
+/**
+ * will be responsible to create a posts list  and return it 
+ * @para sizes - number elements request for the client
+ * @returns post - array full of Posts with   
+ */
 export const createPosts = (sizes:number):Post[] => {
 	const posts:Post[] = [];
      
@@ -10,12 +15,11 @@ export const createPosts = (sizes:number):Post[] => {
 	for (let i = 0; i < sizes; i++) {
 		const post:Post = {} as Post;
 		post.pageName = getNamePage(); // setthe name of the post page
-		post.comments = 100;
+		post.comments = generatorNumber(5000 , 1000);
 		post.date = new Date().getTime();
 		post.description = 'dsadsada';
-		post.share = 100;
-		post.likes = 10;
-		console.log(post.pageName);
+		post.share = generatorNumber(5000 , 1000);
+		post.likes = generatorNumber(5000 , 1000);
 		posts.push(post);
 	}
 
