@@ -1,6 +1,8 @@
 import { Post } from '../interfaces';
 import { generatorNumber } from './generateNums';
 import getNamePage from './getPages';
+import getPhrases from './getPhrases';
+import { setDate } from './setDate';
 
 
 /**
@@ -16,8 +18,8 @@ export const createPosts = (sizes:number):Post[] => {
 		const post:Post = {} as Post;
 		post.pageName = getNamePage(); // setthe name of the post page
 		post.comments = generatorNumber(5000 , 1000);
-		post.date = new Date().getTime();
-		post.description = 'dsadsada';
+		post.date = setDate();
+		post.description = getPhrases() ;
 		post.share = generatorNumber(5000 , 1000);
 		post.likes = generatorNumber(5000 , 1000);
 		posts.push(post);
