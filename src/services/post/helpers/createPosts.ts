@@ -4,24 +4,37 @@ import getNamePage from './getPages';
 import getPhrases from './getPhrases';
 import { setDate } from './setDate';
 
+interface Props {
+	sizes:number, 
+	max_comments:number
+	min_comments:number
+	max_likes: number
+	min_likes: number
+	max_shares: number
+	min_shares: number
+}
 
-/**
- * will be responsible to create a posts list  and return it 
- * @para sizes - number elements request for the client
- * @returns post - array full of Posts with   
- */
-export const createPosts = (sizes:number):Post[] => {
+
+export const createPosts = ({sizes , 
+	max_comments,  
+	min_comments , 
+	max_likes , 
+	max_shares , 
+	min_likes ,
+	min_shares
+}:Props):Post[] => {
+
 	const posts:Post[] = [];
      
 	// created a new element and push into posts array
 	for (let i = 0; i < sizes; i++) {
 		const post:Post = {} as Post;
-		post.pageName = getNamePage(); // setthe name of the post page
-		post.comments = generatorNumber(5000 , 1000);
+		post.pageName = getNamePage(); // set the name of the post page
+		post.comments = generatorNumber(max_comments , min_comments);
 		post.date = setDate();
 		post.description = getPhrases() ;
-		post.share = generatorNumber(5000 , 1000);
-		post.likes = generatorNumber(5000 , 1000);
+		post.share = generatorNumber(max_shares , min_shares);
+		post.likes = generatorNumber(max_likes , min_likes);
 		posts.push(post);
 	}
 

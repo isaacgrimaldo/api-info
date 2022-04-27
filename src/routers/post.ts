@@ -5,11 +5,14 @@
 
 import {Router} from 'express';
 import Services from '../services/post';
-
+import Middleware from '../services/post/middlewares';
 
 const services = new Services();
+const middlewares = new Middleware();
 const route = Router();
 
-route.get('/', services.getPosts);
+route.get('/',[
+	...middlewares.postsList()
+],services.getPosts);
 
 export default  route;

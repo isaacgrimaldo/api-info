@@ -6,7 +6,7 @@
  *  @returns number generated - number of  created
  */
 export const generatorNumber = (max:number , min:number):number => {
-	if(min > max) throw new Error('min not can be bigger than max');
+	if(min > max) throw new Error('you not can set a min value more bigger that a max value');
 	return Math.floor(Math.random() * (max - min ) * min);
 };
 
