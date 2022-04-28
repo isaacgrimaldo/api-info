@@ -11,7 +11,7 @@ const services = new Services();
 const middlewares = new Middleware();
 const route = Router();
 
-route.get('/',[
+route.post('/',[
 	...middlewares.postsList()
 ],services.getPosts);
 
